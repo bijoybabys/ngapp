@@ -1,0 +1,28 @@
+.login-wraper {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    justify-content: center;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.login-block {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+}
+
+/* .login-logo{
+        height: 60px;
+        color: $white-color;
+        font-size: 20px;
+        margin: 0 0 20px 0;
+        img{
+            max-height: 100%;
+        }
+    } */
