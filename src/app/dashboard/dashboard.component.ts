@@ -16,45 +16,65 @@ export class DashboardComponent implements OnInit {
   public showChart: boolean = false;
   public showLoader: boolean = false
   data: any = {
-    lineChart: {},
-    pieChart: {},
+    chart1: {},
+    chart2: {},
     barChart: {},
     doughnutChart: {}
   };
   options: any;
   constructor(private sharedService: SharedService) {
     this.options = {
-      title: {
-        display: true,
-        text: "My Title",
-        fontSize: 16
+      chart1:{
+        title: {
+          display: true,
+          text: "Velocity Predictability",
+          fontSize: 16
+        },
+        barWidth: 10
       },
-      legend: {
-        position: "bottom"
+      chart2:{
+        title: {
+          display: true,
+          text: "Accepted/Commited",
+          fontSize: 16
+        },
+        barWidth: 10
+      },
+      chart3:{
+        title: {
+          display: true,
+          text: "Scope Change",
+          fontSize: 16
+        },
+        barWidth: 10
+      },
+      chart4:{
+        title: {
+          display: true,
+          text: "Priority",
+          fontSize: 16
+        },
+        barWidth: 10
       }
-    };
+      
   }
+}
 
   ngOnInit() {
     this.user = JSON.parse(window.localStorage.getItem("user"));
+    let token = JSON.parse(window.localStorage.getItem("access_token"));
     this.showLoader = true;
-    this.sharedService.httpGet("getCharts").subscribe(res => {
+    this.sharedService.httpGet("/api/datachart/" +token).subscribe(res => {
       this.showLoader = false;
-      if (res.content) {
-        this.data = {
-          barChart: res.content.barChart,
-          pieChart: res.content.pieChart,
-          lineChart: res.content.lineChart,
-          doughnutChart: res.content.doughnutChart
-        };
+      
+         
+        this.data = res.data
         this.showChart = true;
         setTimeout(() => {
           this.barChart.reinit();
-          this.pieChart.reinit();
-          this.lineChart.reinit();
-          this.doughnutChart.reinit();
+          
         });
-      }
+      
     });
   }
 }

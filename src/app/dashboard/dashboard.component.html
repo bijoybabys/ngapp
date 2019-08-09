@@ -5,26 +5,29 @@
     </div>
     <div class=" pull-right full-height">
       <img src="assets/images/avatar.png" alt="" />
-      <span class="name"> {{ user.user }}</span>
+      <span class="name"> {{ user.userName }}</span>
     </div>
   </div>
 </nav>
 <div class="chart-container" *ngIf="showChart">
-    <div class="col-md-6 h-50 col-sm-6 col-lg-6 pull-left">
-    <p-chart type="bar" #barChart [data]="data.barChart"></p-chart>
+  <div class="col-md-12 h-50 col-sm-12 col-lg-12">
+  <div class="col-md-6  col-sm-6 col-lg-6 pull-left">
+    <p-chart type="bar" #barChart [data]="data.chart1" [options]="options.chart1"></p-chart>
   </div>
 
-  <div class="col-md-6 h-50 col-sm-6 col-lg-6 pull-left">
-    <p-chart type="bar" #barChart [data]="data.barChart"></p-chart>
+  <div class="col-md-6  col-sm-6 col-lg-6 pull-left">
+    <p-chart type="bar" #barChart [data]="data.chart2" [options]="options.chart2"></p-chart>
   </div>
-
+</div>
+<div class="col-md-12 h-50 col-sm-12 col-lg-12">
    <div class="col-md-6 h-50 col-sm-6 col-lg-6 pull-left">
-    <p-chart type="bar" #barChart [data]="data.barChart"></p-chart>
+    <p-chart type="bar" #barChart [data]="data.chart3" [options]="options.chart3"></p-chart>
   </div>
   
     <div class="col-md-6 h-50 col-sm-6 col-lg-6 pull-left">
-    <p-chart type="bar" #barChart [data]="data.barChart"></p-chart>
+    <p-chart type="bar" #barChart [data]="data.chart4" [options]="options.chart4"></p-chart>
   </div>
+</div>
 </div>
 
 <div class="loader-container" [hidden]="!showLoader">

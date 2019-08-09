@@ -35,7 +35,7 @@ img {
 }
 
 .h-50 {
-    height: 50%;
+    height: 30%;
 }
 
 .pull-right {
@@ -1244,7 +1244,7 @@ html input[disabled] {
 }
 
 .chart-container {
-    height: calc(100vh - 66px);
+    height: calc(100vh - 30px);
     overflow: scroll;
 }
 
@@ -1361,4 +1361,19 @@ html input[disabled] {
     z-index: 9;
     position: absolute;
     opacity: 0.5;
+}
+.mr-15{
+    margin-right: 20px !important;
+}
+
+.ml-15{
+    margin-right: 20px !important;
+}
+
+.mt-15{
+    margin-right: 20px !important;
+}
+
+.mb-15{
+    margin-right: 100px !important;
 }

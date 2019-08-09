@@ -22,18 +22,20 @@ export class LoginComponent implements OnInit {
 
   login() {
     let params = {
-      username: this.username,
+      userName: this.username,
       password: this.password
     };
     this.showLoader= true;
-    this.sharedService.httpPost("auth", params).subscribe(res => {
+    this.sharedService.httpPost("/api/datachart/login", params).subscribe(res => {
       this.showLoader = false;
-      if (res.content) {
-        window.localStorage.setItem("access_token", res.content.user.token);
-        window.localStorage.setItem("user", JSON.stringify(res.content.user));
-        this.sharedService.setLoggedInSubject(true);
-        this.router.navigate(["dashboard"]);
+      let user = {
+        userName: res.userName
       }
+      window.localStorage.setItem("access_token", res.userId);
+      window.localStorage.setItem("user", JSON.stringify(user));
+      this.sharedService.setLoggedInSubject(true);
+      this.router.navigate(["dashboard"]);
+      
     });
   }
 }
