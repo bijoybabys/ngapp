@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api_url:"http://localhost:9080"
+  api_url:"http://awseb-awseb-iu428cuawiy8-1249812907.us-east-2.elb.amazonaws.com"
 };
 
 /*

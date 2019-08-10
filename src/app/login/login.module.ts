@@ -9,8 +9,7 @@ const ROUTES: Routes = [
   {
     path: "",
     component: LoginComponent,
-    outlet: "login",
-    canActivate: [LoginGuard]
+    outlet: "login"
   }
 ];
 
